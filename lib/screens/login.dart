@@ -7,10 +7,12 @@ import 'package:i_job/screens/register.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/button.dart';
 import 'package:i_job/widget/textField.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 class login extends StatelessWidget {
-  const login({Key? key}) : super(key: key);
-
+  //const login({Key? key}) : super(key: key);
+  final _auth = FirebaseAuth.instance;
+  String email='';
+  String password='';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -55,22 +57,74 @@ class login extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
-                        textField(
-                          border: 40,
-                          padding: 25,
-                          icon: Icons.mail,
-                          color: Colors.white,
-                          hintText: 'example@example.com',
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                            color: Colors.white,
+                          ),
+                          child: TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            onChanged: (value){
+                              email = value;
+                            },
+                            decoration: InputDecoration(
+                              contentPadding:
+                              EdgeInsets.symmetric(vertical: 25 , horizontal: 25),
+                              hintText: 'example@example.com',
+                              prefixIcon: Icon(
+                                Icons.mail,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 20,
                         ),
-                        textField(
-                          border: 40,
-                          padding: 25,
-                          icon: Icons.vpn_key_rounded,
-                          color: Colors.white,
-                          hintText: '**************',
+                        Container(
+
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                            color: Colors.white,
+                          ),
+                          child: TextField(
+                            obscureText: true,
+                            keyboardType: TextInputType.emailAddress,
+                            onChanged: (value){
+                              password = value;
+                            },
+                            decoration: InputDecoration(
+                              contentPadding:
+                              EdgeInsets.symmetric(vertical: 25 , horizontal: 25),
+                              hintText: '**************',
+                              prefixIcon: Icon(
+                                Icons.vpn_key_rounded,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 10,
@@ -111,26 +165,30 @@ class login extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    width: size.width * 0.7,
-                    height: size.height * 0.08,
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      color: kbutton,
-                      onPressed: () {
-                        Navigator.push(context, Fade(widget: homepage()));
-                      },
-                      child: Text(
-                        'Continue >',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
+                  button(
+                    inputText: 'Continue >',
+                    borderRadius: 25,
+                    h: size.height * 0.08,
+                    w: size.width * 0.7,
+                    TextColor: Colors.white,
+                    buttonCcolor: kbutton,
+                    fontsize: 16,
+                    weight: FontWeight.bold,
+                      onPressed: () async {
+
+                        try {
+                          final user = await _auth.signInWithEmailAndPassword(
+                              email: email, password: password);
+
+                          if (user != null) {
+                            Navigator.push(context,Fade(widget: register()));
+                          }
+
+
+                        } catch (e) {
+                          print(e);
+                        }
+                      }
                   ),
                   SizedBox(
                     height: 30,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:i_job/animation/Fade.dart';
 import 'package:i_job/material/colors.dart';
+import 'package:i_job/screens/login.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/button.dart';
-import 'package:i_job/widget/textField.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class register extends StatelessWidget {
@@ -12,6 +12,7 @@ class register extends StatelessWidget {
   final _auth = FirebaseAuth.instance;
   String email='';
   String password='';
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class register extends StatelessWidget {
                   Text(
                     'Hi there!',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -57,28 +58,112 @@ class register extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
-                        textField(
-                          isEmail: TextInputType.emailAddress,
-                          border: 40,
-                          padding: 25,
-                          icon: Icons.mail,
-                          color: Colors.white,
-                          hintText: 'example@example.com',
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                            color: Colors.white,
+                          ),
+                          child: TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            onChanged: (value){
+                              email = value;
+                            },
+                            decoration: InputDecoration(
+                              contentPadding:
+                              EdgeInsets.symmetric(vertical: 25 , horizontal: 25),
+                              hintText: 'Full name',
+                              prefixIcon: Icon(
+                                Icons.account_box,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(height: 20,),
-                        textField(
-                          border: 40,
-                          padding: 25,
-                          icon: Icons.vpn_key_rounded,
-                          color: Colors.white,
-                          hintText: '**************',
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                            color: Colors.white,
+                          ),
+                          child: TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            onChanged: (value){
+                              email = value;
+                            },
+                            decoration: InputDecoration(
+                              contentPadding:
+                              EdgeInsets.symmetric(vertical: 25 , horizontal: 25),
+                              hintText: 'example@example.com',
+                              prefixIcon: Icon(
+                                Icons.mail,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20,),
+                        Container(
+
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                            color: Colors.white,
+                          ),
+                          child: TextField(
+                            obscureText: true,
+                            keyboardType: TextInputType.emailAddress,
+                            onChanged: (value){
+                              password = value;
+                            },
+                            decoration: InputDecoration(
+                              contentPadding:
+                              EdgeInsets.symmetric(vertical: 25 , horizontal: 25),
+                              hintText: '**************',
+                              prefixIcon: Icon(
+                                Icons.vpn_key_rounded,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  color: Color(0xFFFFFFF),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                       ],
                     ),
-                    height: 200,
+                    height: 300,
                     width: size.width,
                     gradient: LinearGradient(
                       colors: [
@@ -109,7 +194,7 @@ class register extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: size.width * 0.07),
                     padding: EdgeInsets.all(8.0),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(height: 15,),
                   button(
                     inputText: 'Continue >',
                     borderRadius: 25,
@@ -119,9 +204,19 @@ class register extends StatelessWidget {
                     buttonCcolor: kbutton,
                     fontsize: 16,
                     weight: FontWeight.bold,
-                    onTap: (){},
+                    onPressed: ()async{
+                      try {
+                      final newUser = await _auth.createUserWithEmailAndPassword(
+                          email: email, password: password);
+
+                      if (newUser != null) {
+                        Navigator.push(context,Fade(widget: login()));
+                      }
+                    } catch (e) {
+                      print(e);
+                    }},
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(height: 15,),
                   Text(
                     'ــــــــــــــــــــــــــــــــــ  Or  ــــــــــــــــــــــــــــــــــ',
                     style: TextStyle(
@@ -130,9 +225,9 @@ class register extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(height: 15,),
                   button(
-                    inputText: 'Sign up',
+                    inputText: 'Log In',
                     borderRadius: 25,
                     h: size.height * 0.08,
                     w: size.width * 0.7,
@@ -140,11 +235,12 @@ class register extends StatelessWidget {
                     buttonCcolor: kbutton,
                     fontsize: 16,
                     weight: FontWeight.bold,
-                    onTap: (){
-                      Navigator.push(context,Fade(widget: register()));
+                    onPressed: (){
+                      Navigator.push(context,Fade(widget: login()));
                       print('test');
                     },
                   ),
+
                 ],
               )
             ],

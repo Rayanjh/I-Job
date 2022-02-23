@@ -5,7 +5,7 @@ class Fade extends PageRouteBuilder {
 
   Fade({required this.widget})
       : super(
-          transitionDuration: Duration(milliseconds: 200),
+          transitionDuration: Duration(milliseconds: 400),
           //context - animation - 2nd animation
           transitionsBuilder: (BuildContext context,
               Animation<double> animation,

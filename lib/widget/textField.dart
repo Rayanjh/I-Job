@@ -25,7 +25,7 @@ class textField extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(border)),
         color: color,
       ),
-      child: TextFormField(
+      child: TextField(
         keyboardType: isEmail,
         decoration: InputDecoration(
           contentPadding:

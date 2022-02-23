@@ -9,7 +9,7 @@ class button extends StatelessWidget {
   final double w;
   FontWeight? weight;
   double? fontsize;
-  VoidCallback? onTap;
+  final VoidCallback onPressed;
 
   button({Key? key,
     required this.inputText,
@@ -20,7 +20,7 @@ class button extends StatelessWidget {
     required this.buttonCcolor,
     this.weight,
     this.fontsize,
-    this.onTap,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -33,9 +33,7 @@ class button extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         color: buttonCcolor,
-          onPressed: () {
-            onTap;
-          },
+        onPressed: onPressed,
           child: Text(
             inputText,
             style: TextStyle(
