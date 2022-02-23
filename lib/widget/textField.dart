@@ -6,6 +6,7 @@ class textField extends StatelessWidget {
   final IconData icon;
   final color;
   String? hintText;
+  TextInputType? isEmail;
 
 
   textField({Key? key,
@@ -14,6 +15,7 @@ class textField extends StatelessWidget {
     required this.icon,
     required this.color,
     this.hintText,
+    this.isEmail,
   }) : super(key: key);
 
   @override
@@ -24,6 +26,7 @@ class textField extends StatelessWidget {
         color: color,
       ),
       child: TextFormField(
+        keyboardType: isEmail,
         decoration: InputDecoration(
           contentPadding:
           EdgeInsets.symmetric(vertical: padding),

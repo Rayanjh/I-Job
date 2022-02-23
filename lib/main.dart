@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'material/colors.dart';
 import 'package:i_job/screens/homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const iJob());
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(iJob());
 }
 
 class iJob extends StatefulWidget {

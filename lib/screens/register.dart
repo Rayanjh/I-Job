@@ -58,6 +58,7 @@ class register extends StatelessWidget {
                           height: 10,
                         ),
                         textField(
+                          isEmail: TextInputType.emailAddress,
                           border: 40,
                           padding: 25,
                           icon: Icons.mail,
