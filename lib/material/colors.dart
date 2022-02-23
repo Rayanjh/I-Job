@@ -6,13 +6,14 @@ bool x = false;
 
 
 const kBackgroundColor = Color(0xFF373568);
-const kBackgroundColorMix = [Color(0xFFFFE130),Color(0xFFFF8484)];
+const kBackgroundColorMix = [Color(0xFF0076FF),Color(0xFF5B4BFA)];
 const kmenuBackgroundColor = Color(0xFF3D416E); //0xFF373956
 
 
 
 const menuBackgroundColor2 = Color(0xFFB8DBD9);
-const kbutton = Color(0xFFFF8AAB);
+const kbutton = Color(0xFF77DDFF);
+//0xFFFF8AAB
 const kColor1 = Color(0xFF0F1108);
 
 
