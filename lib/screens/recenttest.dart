@@ -9,7 +9,11 @@ class recentTest extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Column(
+
+        // change the Height and width to mediaQuery
+        // change the Height and width to mediaQuery
         children: [
+
           backgroundwidget(),
           Container(
             child: Text(

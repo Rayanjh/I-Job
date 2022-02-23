@@ -11,6 +11,7 @@ class homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Column(
@@ -24,36 +25,33 @@ class homepage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        'Welcome back Rayan.',
+                        'Welcome back.',
                       style: TextStyle(
-                        fontSize: 27,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
-
-                    SizedBox(height: 10,),
+                    SizedBox(height: size.height*0.01,),
                     Text(
-                      'Some Text',
+                      'Rayan Althubyani',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(0, 35, 0, 0),
-                      child: Column(
-                        children: [
-                          glassText(
-                              inputText: 'The I-Job Career Quiz is designed to give you an understanding of the areas of your career that will be most suitable for you.',
-                              h: 230,
-                              inputText2: 'it won\'t take much time'),
-                          SizedBox(height: 10,),
-                          glassbutton(),
+                    SizedBox(height: size.height*0.04,),
+                    Column(
+                      children: [
+                        glassText(
+                            inputText: 'The I-Job Career Quiz is designed to give you an understanding of the areas of your career that will be most suitable for you.',
+                            h: size.height*0.34,
+                            inputText2: 'it won\'t take much time'),
+                        SizedBox(height: size.height*0.030,),
+                        glassbutton(),
 
-                        ],
-                      ),
+                      ],
                     ),
 
                   ],

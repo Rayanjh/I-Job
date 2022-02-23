@@ -18,6 +18,7 @@ class about extends StatelessWidget {
               backgroundwidget(),
               Column(
 
+                // change the Height and width to mediaQuery
                 children: [
                   SizedBox(height: 100,),
                   GlassContainer(

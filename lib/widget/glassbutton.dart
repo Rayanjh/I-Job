@@ -16,6 +16,7 @@ class glassbutton extends StatefulWidget {
 class _glassbuttonState extends State<glassbutton> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -30,7 +31,7 @@ class _glassbuttonState extends State<glassbutton> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 8,
+                      height: size.height*0.015,
                     ),
                     Icon(
                       Icons.list_alt,
@@ -38,7 +39,7 @@ class _glassbuttonState extends State<glassbutton> {
                       size: 45,
                     ),
                     SizedBox(
-                      height: 8,
+                      height: size.height*0.01,
                     ),
                     Text(
                       'Listed Job',
@@ -50,8 +51,8 @@ class _glassbuttonState extends State<glassbutton> {
                     ),
                   ],
                 ),
-                height: 100,
-                width: 170,
+                height: size.height*0.15,
+                width: size.width*0.42,
                 gradient: LinearGradient(
                   colors: [
                     kmenuBackgroundColor.withOpacity(0.40),
@@ -86,7 +87,7 @@ class _glassbuttonState extends State<glassbutton> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 8,
+                      height: size.height*0.015,
                     ),
                     Icon(
                       Icons.history,
@@ -94,7 +95,7 @@ class _glassbuttonState extends State<glassbutton> {
                       size: 45,
                     ),
                     SizedBox(
-                      height: 8,
+                      height: size.height*0.01,
                     ),
                     Text(
                       'Recent Test',
@@ -106,8 +107,8 @@ class _glassbuttonState extends State<glassbutton> {
                     ),
                   ],
                 ),
-                height: 100,
-                width: 170,
+                height: size.height*0.15,
+                width: size.width*0.42,
                 gradient: LinearGradient(
                   colors: [
                     kmenuBackgroundColor.withOpacity(0.40),
@@ -137,7 +138,7 @@ class _glassbuttonState extends State<glassbutton> {
           ],
         ),
         SizedBox(
-          height: 10,
+          height: size.height*0.015,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -150,7 +151,7 @@ class _glassbuttonState extends State<glassbutton> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 8,
+                      height: size.height*0.015,
                     ),
                     Icon(
                       Icons.settings,
@@ -158,7 +159,7 @@ class _glassbuttonState extends State<glassbutton> {
                       size: 45,
                     ),
                     SizedBox(
-                      height: 8,
+                      height: size.height*0.01,
                     ),
                     Text(
                       'Settings',
@@ -170,8 +171,8 @@ class _glassbuttonState extends State<glassbutton> {
                     ),
                   ],
                 ),
-                height: 100,
-                width: 170,
+                height: size.height*0.15,
+                width: size.width*0.42,
                 gradient: LinearGradient(
                   colors: [
                     kmenuBackgroundColor.withOpacity(0.40),
@@ -206,7 +207,7 @@ class _glassbuttonState extends State<glassbutton> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 8,
+                      height: size.height*0.015,
                     ),
                     Icon(
                       Icons.alternate_email,
@@ -214,7 +215,7 @@ class _glassbuttonState extends State<glassbutton> {
                       size: 45,
                     ),
                     SizedBox(
-                      height: 8,
+                      height: size.height*0.01,
                     ),
                     Text(
                       'About',
@@ -226,8 +227,8 @@ class _glassbuttonState extends State<glassbutton> {
                     ),
                   ],
                 ),
-                height: 100,
-                width: 170,
+                height: size.height*0.15,
+                width: size.width*0.42,
                 gradient: LinearGradient(
                   colors: [
                     kmenuBackgroundColor.withOpacity(0.40),

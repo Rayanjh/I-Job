@@ -6,6 +6,8 @@ class quiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // change the Height and width to mediaQuery
+      // change the Height and width to mediaQuery
       child: Text(
           'quiz'
       ),

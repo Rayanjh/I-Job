@@ -17,6 +17,7 @@ class glassText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GlassContainer(
       child: Column(
         children: [
@@ -31,7 +32,7 @@ class glassText extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: size.height*0.03,
           ),
           Text(
             inputText2,
@@ -41,16 +42,20 @@ class glassText extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: size.height*0.01,),
           FlatButton(
-            height: 40,
-            minWidth: 100,
+            height: size.height*0.06,
+            minWidth: size.width*0.35,
             color: kbutton,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(
-                '"Test Login Screen"'
+                'Start now',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             onPressed: () {
                 Navigator.push(context,Fade(widget: login()));

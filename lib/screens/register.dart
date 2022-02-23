@@ -28,7 +28,7 @@ class register extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 80,
+                    height: size.height*0.1,
                   ),
                   Text(
                     'Hi there!',
@@ -39,7 +39,7 @@ class register extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: size.height*0.01,
                   ),
                   Text(
                     'Let\'s Get Started.',
@@ -50,13 +50,13 @@ class register extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: size.height*0.06,
                   ),
                   GlassContainer(
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 10,
+                          height: size.height*0.015,
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -90,7 +90,9 @@ class register extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: size.height*0.02,
+                        ),
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -158,12 +160,9 @@ class register extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
                       ],
                     ),
-                    height: 300,
+                    height: size.height*0.4,
                     width: size.width,
                     gradient: LinearGradient(
                       colors: [
@@ -194,7 +193,9 @@ class register extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: size.width * 0.07),
                     padding: EdgeInsets.all(8.0),
                   ),
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: size.height*0.03,
+                  ),
                   button(
                     inputText: 'Continue >',
                     borderRadius: 25,
@@ -216,7 +217,9 @@ class register extends StatelessWidget {
                       print(e);
                     }},
                   ),
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: size.height*0.03,
+                  ),
                   Text(
                     'ــــــــــــــــــــــــــــــــــ  Or  ــــــــــــــــــــــــــــــــــ',
                     style: TextStyle(
@@ -225,7 +228,9 @@ class register extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: size.height*0.03,
+                  ),
                   button(
                     inputText: 'Log In',
                     borderRadius: 25,

@@ -6,7 +6,6 @@ import 'package:i_job/screens/homepage.dart';
 import 'package:i_job/screens/register.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/button.dart';
-import 'package:i_job/widget/textField.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 class login extends StatelessWidget {
   //const login({Key? key}) : super(key: key);
@@ -27,7 +26,7 @@ class login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 80,
+                    height: size.height*0.1,
                   ),
                   Text(
                     'Welcome Back!',
@@ -38,7 +37,7 @@ class login extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: size.height*0.01,
                   ),
                   Text(
                     'Please,Log in.',
@@ -49,13 +48,13 @@ class login extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: size.height*0.06,
                   ),
                   GlassContainer(
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 10,
+                          height: size.height*0.015,
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -90,7 +89,7 @@ class login extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: size.height*0.02,
                         ),
                         Container(
 
@@ -126,12 +125,9 @@ class login extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
                       ],
                     ),
-                    height: 200,
+                    height: size.height*0.28,
                     width: size.width,
                     gradient: LinearGradient(
                       colors: [
@@ -163,7 +159,7 @@ class login extends StatelessWidget {
                     padding: EdgeInsets.all(8.0),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: size.height*0.03,
                   ),
                   button(
                     inputText: 'Continue >',
@@ -181,7 +177,7 @@ class login extends StatelessWidget {
                               email: email, password: password);
 
                           if (user != null) {
-                            Navigator.push(context,Fade(widget: register()));
+                            Navigator.push(context,Fade(widget: homepage()));
                           }
 
 
@@ -191,7 +187,7 @@ class login extends StatelessWidget {
                       }
                   ),
                   SizedBox(
-                    height: 30,
+                    height: size.height*0.03,
                   ),
                   Text(
                     'ــــــــــــــــــــــــــــــــــ  Or  ــــــــــــــــــــــــــــــــــ',
@@ -202,28 +198,20 @@ class login extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: size.height*0.03,
                   ),
-                  Container(
-                    width: size.width * 0.7,
-                    height: size.height * 0.08,
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      color: kbutton,
+                  button(
+                      inputText: 'Sign up',
+                      borderRadius: 25,
+                      h: size.height * 0.08,
+                      w: size.width * 0.7,
+                      TextColor: Colors.white,
+                      buttonCcolor: kbutton,
+                      fontsize: 16,
+                      weight: FontWeight.bold,
                       onPressed: () {
                         Navigator.push(context, Fade(widget: register()));
-                      },
-                      child: Text(
-                        'Sign up',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
+                      }
                   ),
                 ],
               )
