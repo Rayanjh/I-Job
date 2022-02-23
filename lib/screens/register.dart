@@ -5,9 +5,13 @@ import 'package:i_job/material/colors.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/button.dart';
 import 'package:i_job/widget/textField.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class register extends StatelessWidget {
-  const register({Key? key}) : super(key: key);
+  //const register({Key? key}) : super(key: key);
+  final _auth = FirebaseAuth.instance;
+  String email='';
+  String password='';
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +131,7 @@ class register extends StatelessWidget {
                   ),
                   SizedBox(height: 30,),
                   button(
-                    inputText: 'Register',
+                    inputText: 'Sign up',
                     borderRadius: 25,
                     h: size.height * 0.08,
                     w: size.width * 0.7,
