@@ -6,7 +6,7 @@ bool x = false;
 
 
 const kBackgroundColor = Color(0xFF373568);
-const kBackgroundColorMix = [Color(0xFFFF8AAB),Color(0xFFFE58BD)];
+const kBackgroundColorMix = [Color(0xFFFFE130),Color(0xFFFF8484)];
 const kmenuBackgroundColor = Color(0xFF3D416E); //0xFF373956
 
 
