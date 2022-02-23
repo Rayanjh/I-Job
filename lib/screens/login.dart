@@ -158,7 +158,7 @@ class login extends StatelessWidget {
                         Navigator.push(context, Fade(widget: register()));
                       },
                       child: Text(
-                        'Sign up',
+                        'Register',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

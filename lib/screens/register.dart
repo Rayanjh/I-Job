@@ -127,7 +127,7 @@ class register extends StatelessWidget {
                   ),
                   SizedBox(height: 30,),
                   button(
-                    inputText: 'Sign up',
+                    inputText: 'Register',
                     borderRadius: 25,
                     h: size.height * 0.08,
                     w: size.width * 0.7,
