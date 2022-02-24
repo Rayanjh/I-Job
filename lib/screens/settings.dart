@@ -8,6 +8,7 @@ class settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Column(
@@ -33,12 +34,11 @@ class settings extends StatelessWidget {
                       ),
                     ),
                   ),
-                  glassList(inputText: 'Setting',onTap: () {},borderRadius: 10,),
-                  glassList(inputText: 'Setting',onTap: () {},borderRadius: 10,),
-                  glassList(inputText: 'Setting',onTap: () {},borderRadius: 10,),
-                  glassList(inputText: 'Setting',onTap: () {},borderRadius: 10,),
-                  glassList(inputText: 'Setting',onTap: () {},borderRadius: 10,),
-
+                  glassList(inputText: 'Account',onTap: () {}),
+                  glassList(inputText: 'notifications',onTap: () {}),
+                  glassList(inputText: 'Language ',onTap: () {}),
+                  glassList(inputText: 'Appearance mode ',onTap: () {}),
+                  glassList(inputText: 'Setting',onTap: () {}),
                 ],
               ),
             ],
