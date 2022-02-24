@@ -3,25 +3,70 @@ import 'package:glass_kit/glass_kit.dart';
 import 'package:i_job/material/colors.dart';
 
 class glassList extends StatelessWidget {
-  final String inputText;
+  final String title;
+  final String description;
   VoidCallback? onTap;
+
   glassList({Key? key,
-    required this.inputText,
+    required this.title,
+    required this.description,
     this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: onTap,
+      onTap: () async{
+
+      },
       child: GlassContainer(
-        child: Text(
-            inputText,
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Row(
+            children: [
+              Image.asset(
+                  'lib/material/121.png',
+                height: size.height*0.2,
+                width: size.width*0.2,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: size.height * 0.003,),
+                    Expanded(
+                        child: Container(
+                          child: Text(
+                            description,
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 3,
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-        height: 50,
+        height: size.height*0.2,
         width: double.infinity,
         gradient: LinearGradient(
           colors: [
