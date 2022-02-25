@@ -5,9 +5,13 @@ import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/glassText.dart';
 import 'package:i_job/widget/glassbutton.dart';
 import 'package:i_job/UserProfile/userSetup.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class homepage extends StatelessWidget {
-  const homepage({Key? key}) : super(key: key);
+ // const homepage({Key? key}) : super(key: key);
+  final _auth = FirebaseAuth.instance;
+  String name = '' ;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +38,8 @@ class homepage extends StatelessWidget {
                     ),
                     SizedBox(height: size.height*0.01,),
                     Text(
-                      '$userSetup',
+
+                     'Rayan althubyamy',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -64,3 +69,5 @@ class homepage extends StatelessWidget {
     );
   }
 }
+
+
