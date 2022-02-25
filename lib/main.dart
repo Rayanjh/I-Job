@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_job/screens/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:i_job/screens/login.dart';
 
 
 Future<void> main() async {
@@ -22,7 +23,7 @@ class _iJobState extends State<iJob> {
     return MaterialApp(
       title: 'iJobDemo',
       debugShowCheckedModeBanner: false,
-      home: homepage(),
+      home: login(),
     );
   }
 }

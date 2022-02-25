@@ -4,7 +4,7 @@ import 'package:glass_kit/glass_kit.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/glassText.dart';
 import 'package:i_job/widget/glassbutton.dart';
-
+import 'package:i_job/UserProfile/userSetup.dart';
 
 class homepage extends StatelessWidget {
   const homepage({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class homepage extends StatelessWidget {
                     ),
                     SizedBox(height: size.height*0.01,),
                     Text(
-                      'Rayan Althubyani',
+                      '$userSetup',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,

@@ -6,12 +6,14 @@ import 'package:i_job/screens/login.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:i_job/UserProfile/userSetup.dart';
 
 class register extends StatelessWidget {
   //const register({Key? key}) : super(key: key);
   final _auth = FirebaseAuth.instance;
   String email='';
   String password='';
+  String uName='';
 
 
   @override
@@ -66,7 +68,7 @@ class register extends StatelessWidget {
                           child: TextField(
                             keyboardType: TextInputType.emailAddress,
                             onChanged: (value){
-                              email = value;
+                              uName = value;
                             },
                             decoration: InputDecoration(
                               contentPadding:
@@ -208,7 +210,8 @@ class register extends StatelessWidget {
                     onPressed: ()async{
                       try {
                       final newUser = await _auth.createUserWithEmailAndPassword(
-                          email: email, password: password);
+                          email: email, password: password,);
+                      userSetup(uName);
 
                       if (newUser != null) {
                         Navigator.push(context,Fade(widget: login()));
@@ -216,6 +219,7 @@ class register extends StatelessWidget {
                     } catch (e) {
                       print(e);
                     }},
+
                   ),
                   SizedBox(
                     height: size.height*0.03,
@@ -254,4 +258,8 @@ class register extends StatelessWidget {
       ),
     );
   }
+
+
 }
+
+
