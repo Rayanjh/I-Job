@@ -5,13 +5,44 @@ import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/glassText.dart';
 import 'package:i_job/widget/glassbutton.dart';
 import 'package:i_job/UserProfile/userSetup.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class homepage extends StatelessWidget {
+
+class homepage extends StatefulWidget {
+  static const String id = 'chat_screen';
+
+  @override
+  State<StatefulWidget> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<homepage> {
  // const homepage({Key? key}) : super(key: key);
   final _auth = FirebaseAuth.instance;
-  String name = '' ;
+  final db = FirebaseFirestore.instance;
+  late User loggedInUser;
+  
+  String UserName = '';
+  
+  @override
+  void initState() {
+
+    // TODO: implement initState
+    super.initState();
+    getCurrentUser();
+  }
+  void getCurrentUser() async {
+    try{
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        print(loggedInUser.email);
+      }
+    }catch(e){
+      print(e);
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +70,7 @@ class homepage extends StatelessWidget {
                     SizedBox(height: size.height*0.01,),
                     Text(
 
-                     'Rayan althubyamy',
+                     'UTA' ,
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,

@@ -16,6 +16,8 @@ class register extends StatelessWidget {
   String uName='';
 
 
+
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
