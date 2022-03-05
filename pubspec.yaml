@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  url_launcher: ^6.0.20
   auto_animated: ^3.0.1
   flutter_switch: ^0.3.2
   glass_kit: ^2.0.1
@@ -51,6 +52,7 @@ dev_dependencies:
   firebase_core: ^1.12.0
   firebase_auth: ^3.3.7
   cloud_firestore: ^3.1.8
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

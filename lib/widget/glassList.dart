@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:i_job/material/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class glassList extends StatelessWidget {
   final String title;
   final String description;
+  final String link;
   VoidCallback? onTap;
 
   glassList({Key? key,
     required this.title,
     required this.description,
+    required this.link,
+
     this.onTap}) : super(key: key);
 
   @override
@@ -17,7 +21,12 @@ class glassList extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () async{
-
+        var url = link;
+        if (await canLaunch(url)){
+          await launch(url);
+        }else{
+          throw "Can not load URL";
+        }
       },
       child: GlassContainer(
         child: Padding(
