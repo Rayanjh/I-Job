@@ -23,6 +23,7 @@ class register extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kBackgroundColor,
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Stack(
