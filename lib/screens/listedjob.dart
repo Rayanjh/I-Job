@@ -57,7 +57,7 @@ class _listedjobState extends State<listedjob> {
                             height: size.height * 0.22,
                             child: glassList(
                                 title: document['Title'],
-                                description: document['Descreption'],
+                                description: document['Description'],
                                 link: document['Link']),
                           ),
                         ],
