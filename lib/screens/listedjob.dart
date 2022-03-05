@@ -25,7 +25,7 @@ class _listedjobState extends State<listedjob> {
         children: [
           backgroundwidget(),
           Padding(
-            padding: const EdgeInsets.fromLTRB(25, 50, 0, 15),
+            padding: const EdgeInsets.fromLTRB(25, 50, 0, 0),
             child: Text(
               'Listed Job',
               style: TextStyle(
@@ -35,40 +35,38 @@ class _listedjobState extends State<listedjob> {
               ),
             ),
           ),
-
-          StreamBuilder(
-              stream: FirebaseFirestore.instance.collection('JobsList').snapshots() ,
-              builder: (BuildContext context , AsyncSnapshot<QuerySnapshot> snapshot){
-                if(!snapshot.hasData){
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-
-
-                return ListView(
-                  children: snapshot.data!.docs.map((document){
-
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: size.height * 0.22,
-                          child: ListView(
-                            children: [
-                              glassList(
-                                  title: document['Title'],
-                                  description: document['Descreption'],
-                                  link: document['Link']),
-                            ],
-                          ),
-                        ),
-                      ],
+          Container(
+            padding: EdgeInsets.only(top: 100, bottom: 30),
+            child: StreamBuilder(
+                stream: FirebaseFirestore.instance.collection('JobsList').snapshots() ,
+                builder: (BuildContext context , AsyncSnapshot<QuerySnapshot> snapshot){
+                  if(!snapshot.hasData){
+                    return Center(
+                      child: CircularProgressIndicator(),
                     );
+                  }
 
-                  }).toList(),
-                );
-              })
+
+                  return ListView(
+                    children: snapshot.data!.docs.map((document){
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: size.height * 0.22,
+                            child: glassList(
+                                title: document['Title'],
+                                description: document['Descreption'],
+                                link: document['Link']),
+                          ),
+                        ],
+                      );
+
+                    }).toList(),
+                  );
+                }),
+          ),
         ],
       ),
 
