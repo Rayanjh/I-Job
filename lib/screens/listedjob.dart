@@ -47,6 +47,7 @@ class _listedjobState extends State<listedjob> {
                   }
 
 
+
                   return ListView(
                     children: snapshot.data!.docs.map((document){
 
