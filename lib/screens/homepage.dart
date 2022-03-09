@@ -11,7 +11,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class homepage extends StatefulWidget {
   static const String id = 'chat_screen';
-
   @override
   State<StatefulWidget> createState() => _HomepageState();
 }
@@ -21,8 +20,10 @@ class _HomepageState extends State<homepage> {
   final _auth = FirebaseAuth.instance;
   final db = FirebaseFirestore.instance;
   late User loggedInUser;
-  
   String UserName = '';
+
+
+
   
   @override
   void initState() {
@@ -42,6 +43,8 @@ class _HomepageState extends State<homepage> {
       print(e);
     }
   }
+
+
 
 
   @override
@@ -68,15 +71,8 @@ class _HomepageState extends State<homepage> {
                       ),
                     ),
                     SizedBox(height: size.height*0.01,),
-                    Text(
 
-                     'UTA' ,
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
+                   getUserName(),
                     SizedBox(height: size.height*0.04,),
                     Column(
                       children: [
@@ -99,6 +95,7 @@ class _HomepageState extends State<homepage> {
       ),
     );
   }
+
 }
 
 

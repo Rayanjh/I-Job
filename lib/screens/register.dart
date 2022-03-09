@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:i_job/animation/Fade.dart';
@@ -11,12 +12,9 @@ import 'package:i_job/UserProfile/userSetup.dart';
 class register extends StatelessWidget {
   //const register({Key? key}) : super(key: key);
   final _auth = FirebaseAuth.instance;
-  String email='';
-  String password='';
-  String uName='';
-
-
-
+  String email = '';
+  String password = '';
+  String uName = '';
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ class register extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: size.height*0.1,
+                    height: size.height * 0.1,
                   ),
                   Text(
                     'Hi there!',
@@ -44,7 +42,7 @@ class register extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: size.height*0.01,
+                    height: size.height * 0.01,
                   ),
                   Text(
                     'Let\'s Get Started.',
@@ -55,13 +53,13 @@ class register extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: size.height*0.06,
+                    height: size.height * 0.06,
                   ),
                   GlassContainer(
                     child: Column(
                       children: [
                         SizedBox(
-                          height: size.height*0.015,
+                          height: size.height * 0.015,
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -70,12 +68,12 @@ class register extends StatelessWidget {
                           ),
                           child: TextField(
                             keyboardType: TextInputType.emailAddress,
-                            onChanged: (value){
+                            onChanged: (value) {
                               uName = value;
                             },
                             decoration: InputDecoration(
-                              contentPadding:
-                              EdgeInsets.symmetric(vertical: 25 , horizontal: 25),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 25, horizontal: 25),
                               hintText: 'Full name',
                               prefixIcon: Icon(
                                 Icons.account_box,
@@ -96,7 +94,7 @@ class register extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: size.height*0.02,
+                          height: size.height * 0.02,
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -105,12 +103,12 @@ class register extends StatelessWidget {
                           ),
                           child: TextField(
                             keyboardType: TextInputType.emailAddress,
-                            onChanged: (value){
+                            onChanged: (value) {
                               email = value;
                             },
                             decoration: InputDecoration(
-                              contentPadding:
-                              EdgeInsets.symmetric(vertical: 25 , horizontal: 25),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 25, horizontal: 25),
                               hintText: 'example@example.com',
                               prefixIcon: Icon(
                                 Icons.mail,
@@ -130,9 +128,10 @@ class register extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Container(
-
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(40)),
                             color: Colors.white,
@@ -140,12 +139,12 @@ class register extends StatelessWidget {
                           child: TextField(
                             obscureText: true,
                             keyboardType: TextInputType.emailAddress,
-                            onChanged: (value){
+                            onChanged: (value) {
                               password = value;
                             },
                             decoration: InputDecoration(
-                              contentPadding:
-                              EdgeInsets.symmetric(vertical: 25 , horizontal: 25),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 25, horizontal: 25),
                               hintText: '**************',
                               prefixIcon: Icon(
                                 Icons.vpn_key_rounded,
@@ -167,7 +166,7 @@ class register extends StatelessWidget {
                         ),
                       ],
                     ),
-                    height: size.height*0.4,
+                    height: size.height * 0.4,
                     width: size.width,
                     gradient: LinearGradient(
                       colors: [
@@ -199,7 +198,7 @@ class register extends StatelessWidget {
                     padding: EdgeInsets.all(8.0),
                   ),
                   SizedBox(
-                    height: size.height*0.03,
+                    height: size.height * 0.03,
                   ),
                   button(
                     inputText: 'Continue >',
@@ -210,22 +209,48 @@ class register extends StatelessWidget {
                     buttonCcolor: kbutton,
                     fontsize: 16,
                     weight: FontWeight.bold,
-                    onPressed: ()async{
+                    onPressed: () async {
                       try {
-                      final newUser = await _auth.createUserWithEmailAndPassword(
-                          email: email, password: password,);
-                      userSetup(uName);
+                        final newUser =
+                            await _auth.createUserWithEmailAndPassword(
+                          email: email,
+                          password: password,
+                        );
+                        userSetup(uName);
 
-                      if (newUser != null) {
-                        Navigator.push(context,Fade(widget: login()));
+                        if (newUser != null) {
+                          Navigator.push(context, Fade(widget: login()));
+                        }
+                      } catch (ERROR_EMAIL_ALREADY_IN_USE) {
+                        //print(e);
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('Unable to register'),
+                                content: Text('email already in use, Try useing another email'),
+                                actions: [
+                                  button(
+                                    borderRadius: 25,
+                                    h: size.height * 0.08,
+                                    w: size.width * 0.7,
+                                    TextColor: Colors.white,
+                                    buttonCcolor: kbutton,
+                                    fontsize: 16,
+                                    weight: FontWeight.bold,
+                                    inputText: 'ok',
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ],
+                              );
+                            });
                       }
-                    } catch (e) {
-                      print(e);
-                    }},
-
+                    },
                   ),
                   SizedBox(
-                    height: size.height*0.03,
+                    height: size.height * 0.03,
                   ),
                   Text(
                     'ــــــــــــــــــــــــــــــــــ  Or  ــــــــــــــــــــــــــــــــــ',
@@ -236,7 +261,7 @@ class register extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: size.height*0.03,
+                    height: size.height * 0.03,
                   ),
                   button(
                     inputText: 'Log In',
@@ -247,12 +272,11 @@ class register extends StatelessWidget {
                     buttonCcolor: kbutton,
                     fontsize: 16,
                     weight: FontWeight.bold,
-                    onPressed: (){
-                      Navigator.push(context,Fade(widget: login()));
+                    onPressed: () {
+                      Navigator.push(context, Fade(widget: login()));
                       print('test');
                     },
                   ),
-
                 ],
               )
             ],
@@ -261,8 +285,4 @@ class register extends StatelessWidget {
       ),
     );
   }
-
-
 }
-
-

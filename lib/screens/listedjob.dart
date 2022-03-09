@@ -5,7 +5,6 @@ import 'package:i_job/material/colors.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/glassList.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class listedjob extends StatefulWidget {
   const listedjob({Key? key}) : super(key: key);
@@ -45,9 +44,6 @@ class _listedjobState extends State<listedjob> {
                       child: CircularProgressIndicator(),
                     );
                   }
-
-
-
                   return ListView(
                     children: snapshot.data!.docs.map((document){
 
@@ -70,68 +66,6 @@ class _listedjobState extends State<listedjob> {
           ),
         ],
       ),
-
-
-
-
-
-
-
-
-
-      /*StreamBuilder(
-          stream: FirebaseFirestore.instance.collection('JobsList').snapshots(),
-
-          builder:
-              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (!snapshot.hasData) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            return ListView(
-              children: snapshot.data!.docs.map((document) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      // change the Height and width to mediaQuery
-                      // change the Height and width to mediaQuery
-                      children: [
-                        Stack(
-                          children: [
-                            backgroundwidget(),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(25, 50, 0, 15),
-                              child: Text(
-                                'Listed Job',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: size.height * 0.22,
-                      child: ListView(
-                        children: [
-                          glassList(
-                              title: document['Title'],
-                              description: document['Descreption'],
-                              link: document['Link']),
-                        ],
-                      ),
-                    ),
-                  ],
-                );
-              }).toList(),
-            );
-          }),*/
     );
   }
 }

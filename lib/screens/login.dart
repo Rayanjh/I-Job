@@ -182,8 +182,31 @@ class login extends StatelessWidget {
                           }
 
 
-                        } catch (e) {
-                          print(e);
+                        } catch (FirebaseAuthInvalidUserException) {
+                          //print(e);
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: const Text('Unable to login'),
+                                  content: const Text('Incorrect username or password'),
+                                  actions: [
+                                    button(
+                                      borderRadius: 25,
+                                      h: size.height * 0.08,
+                                      w: size.width * 0.7,
+                                      TextColor: Colors.white,
+                                      buttonCcolor: kbutton,
+                                      fontsize: 16,
+                                      weight: FontWeight.bold,
+                                      inputText: 'ok',
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                );
+                              });
                         }
                       }
                   ),
