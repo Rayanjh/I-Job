@@ -55,13 +55,12 @@ class glassList extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: size.height * 0.003,),
-                    Expanded(
+                    Flexible(
                         child: Container(
                           child: Text(
                             description,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.white,
