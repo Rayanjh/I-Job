@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "615074718420",
+    "project_id": "i-job-c8dd7",
+    "storage_bucket": "i-job-c8dd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615074718420:android:b9cbfb2dd50f976bab1141",
+        "android_client_info": {
+          "package_name": "com.FG4.i_job"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615074718420-k87h6881l86lek98k1vk77hs1a4p8lkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeuZ4CEY1A0BLy7eENdKJgTPeDJSOzO2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615074718420-k87h6881l86lek98k1vk77hs1a4p8lkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

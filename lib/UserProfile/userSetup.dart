@@ -10,11 +10,11 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
   Future<void> userSetup(String displayName)async{
 
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    CollectionReference users = FirebaseFirestore.instance.collection('User_Info');
 
     String uid = _auth.currentUser!.uid.toString();
     users.doc(uid).set({
-      'UserName': displayName,
+      'user_name': displayName,
     });
     return;
   }
@@ -29,7 +29,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
 
   FutureBuilder<DocumentSnapshot<Object?>> getUserName(){
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    CollectionReference users = FirebaseFirestore.instance.collection('User_Info');
     String uid = _auth.currentUser!.uid.toString();
 
     return FutureBuilder<DocumentSnapshot>(
@@ -61,7 +61,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-          return Text("${data['UserName']} ",
+          return Text("${data['user_name']} ",
             style: const TextStyle(
               overflow: TextOverflow.ellipsis,
               fontSize: 22,
