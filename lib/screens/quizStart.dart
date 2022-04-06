@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:i_job/screens/quizStart.dart';
 
-import '../animation/Fade.dart';
 import '../material/colors.dart';
 import '../widget/backgroundwidget.dart';
 
-class quiz extends StatelessWidget {
-  const quiz({Key? key}) : super(key: key);
+class quizStart extends StatelessWidget {
+  const quizStart({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,7 @@ class quiz extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(25, 50, 0, 15),
                     child: Text(
-                      'Quiz',
+                      'quizStart',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 32,
@@ -74,7 +72,7 @@ class quiz extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.push(context,Fade(widget: quizStart()));
+
                           },
                         ),
                       ),
