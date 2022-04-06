@@ -3,6 +3,7 @@ import 'package:glass_kit/glass_kit.dart';
 import 'package:i_job/animation/Fade.dart';
 import 'package:i_job/material/colors.dart';
 import 'package:i_job/screens/login.dart';
+import 'package:i_job/screens/quiz.dart';
 
 //glass Container with 2x InputText 1x button
 
@@ -58,7 +59,7 @@ class glassText extends StatelessWidget {
               ),
             ),
             onPressed: () {
-                Navigator.push(context,Fade(widget: login()));
+                Navigator.push(context,Fade(widget: quiz()));
             },
           ),
         ],
