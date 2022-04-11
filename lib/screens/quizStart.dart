@@ -13,23 +13,20 @@ class quizStart extends StatefulWidget {
 class _quizStartState extends State<quizStart> {
   int _qusetionIndex = 0;
   int _totalScore = 0;
-  int _answerIndex = 0;
-  List answers = [9];
-  List<int> intArr = [];
+  List<int> intArr = [0,0,0,0,0,0,0,0,0,0,];
   double finishBar = 0.1;
   // 0 == null
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: kBackgroundColor,
+
       body: Column(
         // change the Height and width to mediaQuery
         // change the Height and width to mediaQuery
-        // change the Height and width to mediaQuery
-        // change the Height and width to mediaQuery
+
         children: [
           Stack(
             children: [
@@ -107,7 +104,9 @@ class _quizStartState extends State<quizStart> {
                         onTap: () {
                           setState(() {
                             //intArr.insert(_qusetionIndex,1);
+                            print(_qusetionIndex);
                             intArr[_qusetionIndex] = 1;
+                            print(intArr);
                           });
                         },
                         child: Container(
@@ -131,6 +130,8 @@ class _quizStartState extends State<quizStart> {
                         onTap: () {
                           setState(() {
                             intArr[_qusetionIndex] = 2;
+                            print(_qusetionIndex);
+                            print(intArr);
                           });
                         },
                         child: Container(
@@ -154,6 +155,8 @@ class _quizStartState extends State<quizStart> {
                         onTap: () {
                           setState(() {
                             intArr[_qusetionIndex] = 3;
+                            print(_qusetionIndex);
+                            print(intArr);
                           });
                         },
                         child: Container(
@@ -177,6 +180,8 @@ class _quizStartState extends State<quizStart> {
                         onTap: () {
                           setState(() {
                             intArr[_qusetionIndex] = 4;
+                            print(_qusetionIndex);
+                            print(intArr);
                           });
                         },
                         child: Container(
