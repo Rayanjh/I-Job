@@ -14,8 +14,6 @@ class settings extends StatelessWidget {
       body: Column(
         // change the Height and width to mediaQuery
         // change the Height and width to mediaQuery
-        // change the Height and width to mediaQuery
-        // change the Height and width to mediaQuery
         children: [
           Stack(
             children: [

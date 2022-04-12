@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../material/colors.dart';
 import '../widget/backgroundwidget.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class quizStart extends StatefulWidget {
   const quizStart({Key? key}) : super(key: key);
@@ -13,8 +15,9 @@ class quizStart extends StatefulWidget {
 class _quizStartState extends State<quizStart> {
   int _qusetionIndex = 0;
   int _totalScore = 0;
-  List<int> intArr = [0,0,0,0,0,0,0,0,0,0,];
+  List<int> intArr = [0,0,0,0,0,0,0,0,0,0];
   double finishBar = 0.1;
+
   // 0 == null
 
   @override
@@ -221,18 +224,21 @@ class _quizStartState extends State<quizStart> {
                               ),
                             ),
                             ElevatedButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
                                     if (_qusetionIndex < 9) {
                                       _qusetionIndex++;
                                       finishBar+=0.1;
                                       print(_qusetionIndex);
                                     }
-                                    if (_qusetionIndex == 9){
-                                      print("finish and send the list");
+                                    if (_qusetionIndex == 9 && intArr[9] != 0){
+                                      print("finish");
                                       print(intArr);
                                     }
                                   });
+
+                                  final url = 'http://127.0.0.1:5000/name';
+                                  final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
                                 },
                                 child: Icon(
                                   Icons.arrow_forward_ios,
