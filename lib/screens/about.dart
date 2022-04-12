@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:i_job/material/colors.dart';
@@ -20,12 +22,20 @@ class about extends StatelessWidget {
 
                 // change the Height and width to mediaQuery
                 children: [
-                  SizedBox(height: 100,),
+                  SizedBox(height: 50,),
                   GlassContainer(
                     child: Text(
-                        'Group project '
+                        'I-JOB was created by a group of IT students in FCIT KAU\n\n Conatct us\n aalaqil0007@stu.kau.edu.sa\n\n salzahrani1243@stu.kau.edu.sa',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+
+
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    height: 300,
+                    height: 600,
                     width: 400,
                     gradient: LinearGradient(
                       colors: [
@@ -56,6 +66,7 @@ class about extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     padding: EdgeInsets.all(8.0),
                   ),
+
                 ],
               )
             ],
