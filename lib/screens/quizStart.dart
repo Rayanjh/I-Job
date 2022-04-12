@@ -240,7 +240,7 @@ class _quizStartState extends State<quizStart> {
                             ElevatedButton(
                                 onPressed: ()  {
                                   setState(() {
-                                    if (_qusetionIndex < 9) {
+                                    if (_qusetionIndex < 9 && intArr[_qusetionIndex] != 0) {
                                       _qusetionIndex++;
                                       finishBar+=0.1;
                                       print(_qusetionIndex);
