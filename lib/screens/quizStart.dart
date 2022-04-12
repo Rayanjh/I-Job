@@ -227,7 +227,7 @@ class _quizStartState extends State<quizStart> {
 
                               onPressed: () async {
                                 if (_qusetionIndex == 9){
-                                  final url = 'http://127.0.0.1:5000/answers';
+                                  final url = 'http://10.0.2.2:5000/answers';
                                   final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
                                 }else{
                                   print('answer the questions');
