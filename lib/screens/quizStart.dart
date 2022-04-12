@@ -237,7 +237,7 @@ class _quizStartState extends State<quizStart> {
                                     }
                                   });
 
-                                  final url = 'http://127.0.0.1:5000/name';
+                                  final url = 'http://127.0.0.1:5000/answers';
                                   final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
                                 },
                                 child: Icon(
