@@ -224,21 +224,30 @@ class _quizStartState extends State<quizStart> {
                               ),
                             ),
                             ElevatedButton(
-                                onPressed: () async {
+                              onPressed: () async {
+                                final url = 'http://127.0.0.1:5000/name';
+                                final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
+                              },
+                              child: Text(
+                                'Finish',
+                              ),
+                            ),
+                            ElevatedButton(
+                                onPressed: ()  {
                                   setState(() {
                                     if (_qusetionIndex < 9) {
                                       _qusetionIndex++;
                                       finishBar+=0.1;
                                       print(_qusetionIndex);
                                     }
-                                    if (_qusetionIndex == 9 && intArr[9] != 0){
-                                      print("finish");
-                                      print(intArr);
-                                    }
                                   });
 
+<<<<<<< Updated upstream
                                   final url = 'http://127.0.0.1:5000/answers';
                                   final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
+=======
+
+>>>>>>> Stashed changes
                                 },
                                 child: Icon(
                                   Icons.arrow_forward_ios,
