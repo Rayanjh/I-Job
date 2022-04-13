@@ -10,7 +10,7 @@ class userSetup {
   CollectionReference users = FirebaseFirestore.instance.collection('User_Info');
 
   Future<void> userSetup1(String displayName) async {
-    String uid = _auth.currentUser!.uid.toString();
+    String uid = await _auth.currentUser!.uid.toString();
     users.doc(uid).set({
       'user_name': displayName,
       'test_result': '',
@@ -19,7 +19,7 @@ class userSetup {
   }
 
   Future<void> userTestResult(String testResult) async {
-    String uid = _auth.currentUser!.uid.toString();
+    String uid = await _auth.currentUser!.uid.toString();
     users.doc(uid).update({
       'test_result': testResult,
     });
