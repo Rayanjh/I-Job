@@ -4,7 +4,7 @@ import '../material/colors.dart';
 import '../widget/backgroundwidget.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'package:i_job/UserProfile/userSetup.dart';
 class quizStart extends StatefulWidget {
   const quizStart({Key? key}) : super(key: key);
 
@@ -229,9 +229,12 @@ class _quizStartState extends State<quizStart> {
                                 if (_qusetionIndex == 9){
                                   final url = 'http://10.0.2.2:5000/answers';
                                   final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
+
                                 }else{
                                   print('answer the questions');
+                                  userTestResult('it');
                                 }
+
                               },
                               child: Text(
                                 'Finish',

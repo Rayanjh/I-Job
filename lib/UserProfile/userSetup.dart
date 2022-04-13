@@ -7,19 +7,25 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
 
   final _auth = FirebaseAuth.instance;
+  CollectionReference users = FirebaseFirestore.instance.collection('User_Info');
 
   Future<void> userSetup(String displayName)async{
-
-    CollectionReference users = FirebaseFirestore.instance.collection('User_Info');
-
     String uid = _auth.currentUser!.uid.toString();
     users.doc(uid).set({
       'user_name': displayName,
+      'test_result':'',
     });
     return;
   }
 
+Future<void> userTestResult(String testResult)async{
 
+  String uid = _auth.currentUser!.uid.toString();
+  users.doc(uid).update({
+    'test_result': testResult,
+  });
+  return;
+}
 
 
   Future <String> getCurrentUID() async{
@@ -29,7 +35,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
 
   FutureBuilder<DocumentSnapshot<Object?>> getUserName(){
-    CollectionReference users = FirebaseFirestore.instance.collection('User_Info');
+
     String uid = _auth.currentUser!.uid.toString();
 
     return FutureBuilder<DocumentSnapshot>(
