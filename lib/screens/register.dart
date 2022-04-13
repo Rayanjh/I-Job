@@ -216,7 +216,7 @@ class register extends StatelessWidget {
                           email: email,
                           password: password,
                         );
-                        userSetup(uName);
+                        userSetup().userSetup1(uName);
 
                         if (newUser != null) {
                           Navigator.push(context, Fade(widget: login()));

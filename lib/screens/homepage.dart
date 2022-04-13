@@ -27,8 +27,6 @@ class _HomepageState extends State<homepage> {
   
   @override
   void initState() {
-
-    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
@@ -72,7 +70,7 @@ class _HomepageState extends State<homepage> {
                     ),
                     SizedBox(height: size.height*0.01,),
 
-                   getUserName(),
+                   userSetup().getUserName(),
                     SizedBox(height: size.height*0.04,),
                     Column(
                       children: [

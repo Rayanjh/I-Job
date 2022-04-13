@@ -4,45 +4,42 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-
+class userSetup {
 
   final _auth = FirebaseAuth.instance;
   CollectionReference users = FirebaseFirestore.instance.collection('User_Info');
 
-  Future<void> userSetup(String displayName)async{
+  Future<void> userSetup1(String displayName) async {
     String uid = _auth.currentUser!.uid.toString();
     users.doc(uid).set({
       'user_name': displayName,
-      'test_result':'',
+      'test_result': '',
     });
     return;
   }
 
-Future<void> userTestResult(String testResult)async{
+  Future<void> userTestResult(String testResult) async {
+    String uid = _auth.currentUser!.uid.toString();
+    users.doc(uid).update({
+      'test_result': testResult,
+    });
+    return;
+  }
 
-  String uid = _auth.currentUser!.uid.toString();
-  users.doc(uid).update({
-    'test_result': testResult,
-  });
-  return;
-}
 
-
-  Future <String> getCurrentUID() async{
+  Future <String> getCurrentUID() async {
     String uid = await _auth.currentUser!.uid.toString();
     return uid;
   }
 
 
-  FutureBuilder<DocumentSnapshot<Object?>> getUserName(){
-
+  FutureBuilder<DocumentSnapshot<Object?>> getUserName() {
     String uid = _auth.currentUser!.uid.toString();
 
     return FutureBuilder<DocumentSnapshot>(
       future: users.doc(uid).get(),
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-
         if (snapshot.hasError) {
           return const Text("Something went wrong",
             style: TextStyle(
@@ -79,11 +76,9 @@ Future<void> userTestResult(String testResult)async{
         return const Text("");
       },
     );
-
-
   }
 
-
+}
 
 
 
