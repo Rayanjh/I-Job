@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:i_job/screens/result.dart';
 
+import '../animation/Fade.dart';
 import '../material/colors.dart';
 import '../widget/backgroundwidget.dart';
 import 'package:http/http.dart' as http;
@@ -235,7 +237,7 @@ class _quizStartState extends State<quizStart> {
                                   print('answer the questions');
 
                                 }
-
+                                Navigator.push(context,Fade(widget: result()));
                               },
                               child: Text(
                                 'Finish',
