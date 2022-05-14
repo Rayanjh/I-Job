@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:i_job/animation/Fade.dart';
 import 'package:i_job/material/colors.dart';
+import 'package:i_job/screens/homepage.dart';
 import 'package:i_job/screens/register.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/glassList.dart';
@@ -71,6 +72,7 @@ class _resultState extends State<result> {
                           
                           }
                         ),
+
                   ),
                   Padding(
                     
@@ -85,6 +87,21 @@ class _resultState extends State<result> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                    ),
+                  ),
+                  Padding(
+
+                    padding: const EdgeInsets.only(top: 60),
+                    child: Center(
+                      child: ElevatedButton(onPressed: () async{
+
+                      Navigator.push(context,Fade(widget: homepage()));
+
+                      }
+                          ,
+                          child: Text(
+                            'Go back',
+                          )),
                     ),
                   ),
                 ],
