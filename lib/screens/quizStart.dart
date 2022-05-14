@@ -233,11 +233,13 @@ class _quizStartState extends State<quizStart> {
                                   final url = 'http://10.0.2.2:5000/answers';
                                   final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
 
+                                  Navigator.push(context,Fade(widget: result()));
+
                                 }else{
                                   print('answer the questions');
 
                                 }
-                                Navigator.push(context,Fade(widget: result()));
+
                               },
                               child: Text(
                                 'Finish',
