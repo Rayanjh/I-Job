@@ -232,9 +232,6 @@ class _quizStartState extends State<quizStart> {
                                   userSetup().userTestResult('it');
                                   final url = 'http://10.0.2.2:5000/answers';
                                   final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
-                                  Navigator.push(context,Fade(widget: result()));
-
-
                                 }else{
                                   print('answer the questions');
                                 }

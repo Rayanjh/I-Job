@@ -22,7 +22,8 @@ class _resultState extends State<result> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    String job="";
+    String job = "asda";
+
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Column(
@@ -46,31 +47,38 @@ class _resultState extends State<result> {
                       ),
                     ),
                   ),
-                  button(
-                      inputText: 'Show result',
-                      borderRadius: 25,
-                      h: size.height * 0.08,
-                      w: size.width * 0.7,
-                      TextColor: Colors.white,
-                      buttonCcolor: kbutton,
-                      fontsize: 16,
-                      weight: FontWeight.bold,
-                      onPressed: () async {
-                        //initState()
-                        final url = 'http://10.0.2.2:5000/answers';
-                        final response = await http.get(Uri.parse(url));
-                        final decoded = jsonDecode(response.body) as Map<String, dynamic>;
-                        job = decoded['job'];
-                        print(job);
-                        }
-                      ),
-                  Text(
-                    job,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
 
+                  Center(
+                    child: button(
+                        inputText: 'Show result',
+                        borderRadius: 25,
+                        h: size.height * 0.08,
+                        w: size.width * 0.7,
+                        TextColor: Colors.white,
+                        buttonCcolor: kbutton,
+                        fontsize: 16,
+                        weight: FontWeight.bold,
+                        onPressed: () async {
+                          //initState()
+                          final url = 'http://10.0.2.2:5000/answers';
+                          final response = await http.get(Uri.parse(url));
+                          final decoded = jsonDecode(response.body) as Map<String, dynamic>;
+                          job = decoded['job'];
+                          print(job);
+                          }
+                        ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60),
+                    child: Center(
+                      child: Text(
+                        job,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ],

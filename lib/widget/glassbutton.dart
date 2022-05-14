@@ -6,6 +6,7 @@ import 'package:i_job/material/colors.dart';
 import 'package:i_job/screens/about.dart';
 import 'package:i_job/screens/listedjob.dart';
 import 'package:i_job/screens/recenttest.dart';
+import 'package:i_job/screens/result.dart';
 import 'package:i_job/screens/settings.dart';
 
 class glassbutton extends StatefulWidget {
@@ -81,7 +82,7 @@ class _glassbuttonState extends State<glassbutton> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,Fade(widget: recentTest()));
+                Navigator.push(context,Fade(widget: result()));
               },
               child: GlassContainer(
                 child: Column(
