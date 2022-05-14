@@ -235,6 +235,7 @@ class _quizStartState extends State<quizStart> {
                                 }else{
                                   print('answer the questions');
                                 }
+                                Navigator.push(context,Fade(widget: result()));
                               },
                               child: Text(
                                 'Finish',
