@@ -24,7 +24,6 @@ class _HomepageState extends State<homepage> {
 
 
 
-  
   @override
   void initState() {
     super.initState();
@@ -41,9 +40,6 @@ class _HomepageState extends State<homepage> {
       print(e);
     }
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {

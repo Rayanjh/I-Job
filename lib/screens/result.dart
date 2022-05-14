@@ -9,7 +9,7 @@ import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/glassList.dart';
 import 'package:http/http.dart' as http;
 import '../widget/button.dart';
-String job="";
+
 
 class result extends StatefulWidget {
 
@@ -22,7 +22,7 @@ class _resultState extends State<result> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    String job="";
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Column(
@@ -47,8 +47,6 @@ class _resultState extends State<result> {
                     ),
                   ),
                   button(
-
-
                       inputText: 'Show result',
                       borderRadius: 25,
                       h: size.height * 0.08,
@@ -60,22 +58,15 @@ class _resultState extends State<result> {
                       onPressed: () async {
                         //initState()
                         final url = 'http://10.0.2.2:5000/answers';
-
                         final response = await http.get(Uri.parse(url));
                         final decoded = jsonDecode(response.body) as Map<String, dynamic>;
                         job = decoded['job'];
                         print(job);
-
-                      }
-
+                        }
                       ),
-
-
                   Text(
-
                     job,
                     style: TextStyle(
-
                       color: Colors.white,
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
