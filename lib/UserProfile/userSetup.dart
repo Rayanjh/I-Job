@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -112,7 +114,7 @@ class userSetup {
           return Text("${data['test_result']} ",
             style: const TextStyle(
               overflow: TextOverflow.ellipsis,
-              fontSize: 22,
+              fontSize: 30,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),);
