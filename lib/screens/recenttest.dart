@@ -27,7 +27,6 @@ class recentTest extends StatelessWidget {
         ),
       ),
             SizedBox(),
-            
   ],
     ),
     );
