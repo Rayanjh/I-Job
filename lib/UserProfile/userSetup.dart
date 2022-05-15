@@ -78,6 +78,51 @@ class userSetup {
     );
   }
 
+  FutureBuilder<DocumentSnapshot<Object?>> getUserTest() {
+    String uid = _auth.currentUser!.uid.toString();
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(uid).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return const Text("Something went wrong",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return const Text("Document does not exist",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          return Text("${data['test_result']} ",
+            style: const TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),);
+        }
+
+        return const Text("");
+      },
+    );
+  }
+
 }
 
 
