@@ -6,6 +6,11 @@ import '../widget/backgroundwidget.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:i_job/UserProfile/userSetup.dart';
+String answer1 = "a1";
+String answer2 = "a2";
+String answer3 = "a3";
+String answer4 = "a4";
+
 class quizStart extends StatefulWidget {
   const quizStart({Key? key}) : super(key: key);
 
@@ -122,7 +127,7 @@ class _quizStartState extends State<quizStart> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
-                            'Answer',
+                            answer1,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -147,7 +152,7 @@ class _quizStartState extends State<quizStart> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
-                            'Answer',
+                            answer2,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -172,7 +177,7 @@ class _quizStartState extends State<quizStart> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
-                            'Answer',
+                            answer3,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -197,7 +202,7 @@ class _quizStartState extends State<quizStart> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
-                            'Answer',
+                            answer4,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -230,10 +235,10 @@ class _quizStartState extends State<quizStart> {
                                 if (_qusetionIndex == 9){
                                   final url = 'http://10.0.2.2:5000/answers';
                                   final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
+                                  Navigator.push(context,Fade(widget: result()));
                                 }else{
                                   print('answer the questions');
                                 }
-                                Navigator.push(context,Fade(widget: result()));
                               },
                               child: Text(
                                 'Finish',
@@ -248,7 +253,78 @@ class _quizStartState extends State<quizStart> {
                                       print(_qusetionIndex);
                                     }
                                   });
-                                },
+                                if(_qusetionIndex == 0){
+                                  setState(() {
+                                    answer1='a1';
+                                    answer2='a2';
+                                    answer3='a3';
+                                    answer4='a4';
+                                  });
+                                }else if(_qusetionIndex == 1){
+                                  setState(() {
+                                    answer1='b1';
+                                    answer2='b2';
+                                    answer3='b3';
+                                    answer4='b4';
+                                  });
+                                }else if(_qusetionIndex == 2){
+                                  setState(() {
+                                    answer1='c1';
+                                    answer2='c2';
+                                    answer3='c3';
+                                    answer4='c4';
+                                  });
+                                }else if(_qusetionIndex == 3){
+                                  setState(() {
+                                    answer1='d1';
+                                    answer2='d2';
+                                    answer3='d3';
+                                    answer4='d4';
+                                  });
+                                }else if(_qusetionIndex == 4){
+                                  setState(() {
+                                    answer1='e1';
+                                    answer2='e2';
+                                    answer3='e3';
+                                    answer4='e4';
+                                  });
+                                }else if(_qusetionIndex == 5){
+                                  setState(() {
+                                    answer1='f1';
+                                    answer2='f2';
+                                    answer3='f3';
+                                    answer4='f4';
+                                  });
+                                }else if(_qusetionIndex == 6){
+                                  setState(() {
+                                    answer1='g1';
+                                    answer2='g2';
+                                    answer3='g3';
+                                    answer4='g4';
+                                  });
+                                }else if(_qusetionIndex == 7){
+                                  setState(() {
+                                    answer1='h1';
+                                    answer2='h2';
+                                    answer3='h3';
+                                    answer4='h4';
+                                  });
+                                }else if(_qusetionIndex == 8){
+                                  setState(() {
+                                    answer1='i1';
+                                    answer2='i2';
+                                    answer3='i3';
+                                    answer4='i4';
+                                  });
+                                }else if(_qusetionIndex == 9){
+                                  setState(() {
+                                    answer1='j1';
+                                    answer2='j2';
+                                    answer3='j3';
+                                    answer4='j4';
+                                  });
+                                }
+                                  },
                                 child: Icon(
                                   Icons.arrow_forward_ios,
                                   size: 16,
