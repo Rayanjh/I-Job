@@ -82,7 +82,7 @@ class _glassbuttonState extends State<glassbutton> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,Fade(widget: result()));
+                Navigator.push(context,Fade(widget: recentTest()));
               },
               child: GlassContainer(
                 child: Column(
