@@ -19,13 +19,24 @@ class about extends StatelessWidget {
             children: [
               backgroundwidget(),
               Column(
-
                 // change the Height and width to mediaQuery
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 50,),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(25, 50, 0, 0),
+                    child: Text(
+                      'About us',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10,),
                   GlassContainer(
                     child: Text(
-                        'I-JOB was created by a group of IT students in FCIT KAU\n\n Conatct us\n aalaqil0007@stu.kau.edu.sa\n\n salzahrani1243@stu.kau.edu.sa',
+                        'I-JOB was created by a group of IT students in FCIT KAU\n\n Conatct us\n aalaqil0007@stu.kau.edu.sa\nralthabyani@stu.kau.edu.sa\n salzahrani1243@stu.kau.edu.sa',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -35,7 +46,7 @@ class about extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    height: 600,
+                    height: 400,
                     width: 400,
                     gradient: LinearGradient(
                       colors: [
