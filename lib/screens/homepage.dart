@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:i_job/UserProfile/Profile.dart';
+import 'package:i_job/animation/Fade.dart';
 import 'package:i_job/material/colors.dart';
 import 'package:glass_kit/glass_kit.dart';
+import 'package:i_job/screens/recenttest.dart';
 import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/glassText.dart';
 import 'package:i_job/widget/glassbutton.dart';
@@ -52,18 +55,38 @@ class _HomepageState extends State<homepage> {
             children: [
               backgroundwidget(),
               Padding(
-                padding: EdgeInsets.fromLTRB(25, 50, 25, 60),
+                padding: EdgeInsets.fromLTRB(25, 50, 25, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                        'Welcome back.',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                            'Welcome back',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Container(
+
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(20))
+                          ),
+                          child: IconButton(
+                              onPressed: (){
+                                Navigator.push(context,Fade(widget: profile()));
+                              }, icon: Icon(Icons.person),
+                            color: Colors.grey,
+
+                          ),
+                        ),
+                      ],
                     ),
+
                     SizedBox(height: size.height*0.01,),
 
                    userSetup().getUserName(),

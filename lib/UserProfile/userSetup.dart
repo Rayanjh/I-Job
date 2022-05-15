@@ -15,6 +15,11 @@ class userSetup {
     String uid = await _auth.currentUser!.uid.toString();
     users.doc(uid).set({
       'user_name': displayName,
+      'first_name':'',
+      'last_name':'',
+      'email':'',
+      'address':'',
+      'DOB':'',
       'test_result': '',
     });
     return;
