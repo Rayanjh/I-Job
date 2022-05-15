@@ -10,6 +10,7 @@ import 'package:i_job/widget/backgroundwidget.dart';
 import 'package:i_job/widget/glassList.dart';
 import 'package:http/http.dart' as http;
 import '../widget/button.dart';
+import 'package:i_job/UserProfile/userSetup.dart';
 String job = "";
 
 class result extends StatefulWidget {
@@ -66,6 +67,7 @@ class _resultState extends State<result> {
                           final decoded = jsonDecode(response.body) as Map<String, dynamic>;
                           setState(() {
                             job = decoded['job'];
+                            userSetup().userTestResult(job);
                           });
 
                           print(job);

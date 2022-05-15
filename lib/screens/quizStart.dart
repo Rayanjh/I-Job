@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:i_job/screens/result.dart';
-
 import '../animation/Fade.dart';
 import '../material/colors.dart';
 import '../widget/backgroundwidget.dart';
@@ -229,7 +228,6 @@ class _quizStartState extends State<quizStart> {
 
                               onPressed: () async {
                                 if (_qusetionIndex == 9){
-                                  userSetup().userTestResult('it');
                                   final url = 'http://10.0.2.2:5000/answers';
                                   final response = await http.post(Uri.parse(url),body: json.encode({'answers' : intArr}));
                                 }else{
