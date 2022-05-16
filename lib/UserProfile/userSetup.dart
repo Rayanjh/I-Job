@@ -20,7 +20,7 @@ class userSetup {
       'email':'',
       'address':'',
       'DOB':'',
-      'test_result': '',
+      'test_result': 'Test not yet taken!',
     });
     return;
   }
