@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widget/backgroundwidget.dart';
+import '../widget/button.dart';
 import 'ProfileWidget.dart';
 import 'appbar.dart';
 import 'userSetup.dart';
@@ -19,6 +20,10 @@ class _profileState extends State<profile> {
 
   Widget build(BuildContext context) {
     const img = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png';
+    String fN = '' ;
+    String email = '';
+    String address = '';
+    String DOB = '' ;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kBackgroundColor,
@@ -52,19 +57,32 @@ class _profileState extends State<profile> {
                                   'FullName',
                                   style: TextStyle(
                                     color: Colors.white,
+
                                   ),
                                 ),
                               ),
                             ),
-                            Container(
-                              width: size.width*0.75,
-                              height: 30,
-                              child: TextField(
-
-                              ),
+                            Stack(
+                              children: [
+                                Container(
+                                  width: size.width*0.75,
+                                  height: 30,
+                                  child: TextField(
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                    keyboardType: TextInputType.name,
+                                    onChanged: (value) {
+                                      fN = value;
+                                      userSetup().userFullName(fN);
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
+                        userSetup().getFullName(),
                         SizedBox(height: 10,),
                         Row(
                           children: [
@@ -79,15 +97,27 @@ class _profileState extends State<profile> {
                                 ),
                               ),
                             ),
-                            Container(
-                              width: size.width*0.75,
-                              height: 30,
-                              child: TextField(
-
-                              ),
+                            Stack(
+                              children: [
+                                Container(
+                                  width: size.width*0.75,
+                                  height: 30,
+                                  child: TextField(
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                    keyboardType: TextInputType.emailAddress,
+                                    onChanged: (value) {
+                                      email = value;
+                                      userSetup().userEmail(email);
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
+                        userSetup().getEmail(),
                         SizedBox(height: 10,),
                         Row(
                           children: [
@@ -102,15 +132,27 @@ class _profileState extends State<profile> {
                                 ),
                               ),
                             ),
-                            Container(
-                              width: size.width*0.75,
-                              height: 30,
-                              child: TextField(
-
-                              ),
+                            Stack(
+                              children: [
+                                Container(
+                                  width: size.width*0.75,
+                                  height: 30,
+                                  child: TextField(
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                    keyboardType: TextInputType.datetime,
+                                    onChanged: (value) {
+                                      DOB = value;
+                                      userSetup().userDOB(DOB);
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
+                        userSetup().getDOBl(),
                         SizedBox(height: 10,),
                         Row(
                           children: [
@@ -125,16 +167,30 @@ class _profileState extends State<profile> {
                                 ),
                               ),
                             ),
-                            Container(
-                              width: size.width*0.75,
-                              height: 30,
-                              child: TextField(
+                            Stack(
+                              children: [
+                                Container(
+                                  width: size.width*0.75,
+                                  height: 30,
+                                  child: TextField(
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                    keyboardType: TextInputType.streetAddress,
+                                    onChanged: (value) {
+                                      address = value;
+                                      userSetup().userLocation(address);
+                                    },
+                                    cursorColor: Colors.white,
 
-                              ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        SizedBox(height: 10,),
+                        userSetup().getAddress(),
+                        SizedBox(height: 50,),
                       ],
                     ),
                   ),
@@ -143,6 +199,7 @@ class _profileState extends State<profile> {
               ),
             ],
           ),
+
         ],
       ),
     );

@@ -212,7 +212,7 @@ class register extends StatelessWidget {
                     onPressed: () async {
                       try {
                         final newUser =
-                            await _auth.createUserWithEmailAndPassword(
+                         await _auth.createUserWithEmailAndPassword(
                           email: email,
                           password: password,
                         );

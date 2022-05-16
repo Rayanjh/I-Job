@@ -15,12 +15,44 @@ class userSetup {
     String uid = await _auth.currentUser!.uid.toString();
     users.doc(uid).set({
       'user_name': displayName,
-      'first_name':'',
-      'last_name':'',
+      'full_name':'',
       'email':'',
       'address':'',
       'DOB':'',
       'test_result': 'Test not yet taken!',
+    });
+    return;
+  }
+
+  Future<void> userFullName(String full_name) async {
+    String uid = await _auth.currentUser!.uid.toString();
+    users.doc(uid).update({
+      'full_name': full_name,
+    });
+    return;
+  }
+
+  Future<void> userEmail(String email) async {
+    String uid = await _auth.currentUser!.uid.toString();
+    users.doc(uid).update({
+      'email': email,
+    });
+    return;
+  }
+
+  Future<void> userLocation(String address) async {
+    String uid = await _auth.currentUser!.uid.toString();
+    users.doc(uid).update({
+      'address': address,
+    });
+    return;
+  }
+
+
+  Future<void> userDOB(String DOB) async {
+    String uid = await _auth.currentUser!.uid.toString();
+    users.doc(uid).update({
+      'DOB': DOB,
     });
     return;
   }
@@ -51,7 +83,6 @@ class userSetup {
           return const Text("Something went wrong",
             style: TextStyle(
               overflow: TextOverflow.ellipsis,
-              fontSize: 22,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -62,7 +93,6 @@ class userSetup {
           return const Text("Document does not exist",
             style: TextStyle(
               overflow: TextOverflow.ellipsis,
-              fontSize: 22,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -75,6 +105,174 @@ class userSetup {
             style: const TextStyle(
               overflow: TextOverflow.ellipsis,
               fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),);
+        }
+
+        return const Text("");
+      },
+    );
+  }
+
+  FutureBuilder<DocumentSnapshot<Object?>> getFullName() {
+    String uid = _auth.currentUser!.uid.toString();
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(uid).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return const Text("Something went wrong",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return const Text("Document does not exist",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          return Text("${data['full_name']} ",
+            style: const TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),);
+        }
+
+        return const Text("");
+      },
+    );
+  }
+
+  FutureBuilder<DocumentSnapshot<Object?>> getEmail() {
+    String uid = _auth.currentUser!.uid.toString();
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(uid).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return const Text("Something went wrong",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return const Text("Document does not exist",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          return Text("${data['email']} ",
+            style: const TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),);
+        }
+
+        return const Text("");
+      },
+    );
+  }
+
+  FutureBuilder<DocumentSnapshot<Object?>> getAddress() {
+    String uid = _auth.currentUser!.uid.toString();
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(uid).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return const Text("Something went wrong",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return const Text("Document does not exist",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          return Text("${data['address']} ",
+            style: const TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),);
+        }
+
+        return const Text("");
+      },
+    );
+  }
+
+  FutureBuilder<DocumentSnapshot<Object?>> getDOBl() {
+    String uid = _auth.currentUser!.uid.toString();
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(uid).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return const Text("Something went wrong",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return const Text("Document does not exist",
+            style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          );
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          return Text("${data['DOB']} ",
+            style: const TextStyle(
+              overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),);
